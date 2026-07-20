@@ -1,0 +1,43 @@
+# --- Compilaciones y Salidas de Producción (GIGANTES) ---
+dist/
+build/
+out/
+.next/
+
+# --- Dependencias y Caché (Millones de líneas de código) ---
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+.vite/
+.eslintcache
+
+# --- Multimedia y Assets Pesados ---
+src/assets/videos/
+src/assets/images/**/*.png
+src/assets/images/**/*.jpg
+src/assets/images/**/*.svg
+public/assets/
+
+# --- Archivos de Configuración Locales y Secretos ---
+.env*
+!.env.example
+*.local
+*.pod
+.package-lock.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# --- Reportes y Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+.nyc_output/
+
+# --- Documentación Interna Extensa ---
+docs/
+CHANGELOG.md
+README.md
