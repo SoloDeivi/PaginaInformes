@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b",
     "server": "tsx server/index.ts",
-    "start": "tsx server/index.ts"
+    "start": "tsx server/index.ts",
+    "deploy": "npm run build && pm2 startOrRestart ecosystem.config.cjs --update-env"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",
