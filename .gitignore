@@ -26,3 +26,6 @@ dist-ssr
 # Claude Code
 .claude/
 claude_errors.log
+
+# Logo privado (no se sube a git, se reemplaza localmente por máquina)
+src/assets/radio_mining.png

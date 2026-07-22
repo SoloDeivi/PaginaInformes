@@ -1,6 +1,11 @@
 import type { CommonFailureOption, EquipmentModelOption } from '@/features/informe/types'
+import placeholderLogo from '@/assets/placeholder.png'
 
 export const OTROS_VALUE = 'otros'
+
+// Logo mostrado en la esquina superior izquierda del informe PDF.
+// Para cambiarlo, importa otra imagen desde src/assets y reasigna esta constante.
+export const REPORT_LOGO = placeholderLogo
 
 export const EQUIPMENT_MODELS: EquipmentModelOption[] = [
   { value: 'APX900', label: 'APX900' },

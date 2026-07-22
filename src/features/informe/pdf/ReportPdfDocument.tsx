@@ -1,5 +1,5 @@
 import { Document, Image, Page, StyleSheet, Text, View } from '@react-pdf/renderer'
-import { COMMON_FAILURES } from '@/features/informe/constants'
+import { COMMON_FAILURES, REPORT_LOGO } from '@/features/informe/constants'
 import type { ReportFormData } from '@/features/informe/types'
 
 const styles = StyleSheet.create({
@@ -19,6 +19,16 @@ const styles = StyleSheet.create({
     borderBottomColor: '#0f172a',
     paddingBottom: 10,
     marginBottom: 18,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 36,
+    height: 36,
+    marginRight: 10,
+    objectFit: 'contain',
   },
   title: {
     fontSize: 18,
@@ -143,9 +153,12 @@ export const ReportPdfDocument = ({ report, resolvedModelo }: ReportPdfDocumentP
     <Document title={`Informe tecnico - ${resolvedModelo} - ${report.numeroSerie}`}>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <View>
-            <Text style={styles.title}>Informe Técnico de Laboratorio</Text>
-            <Text style={styles.subtitle}>Equipos de radiocomunicación</Text>
+          <View style={styles.headerLeft}>
+            <Image src={REPORT_LOGO} style={styles.logo} />
+            <View>
+              <Text style={styles.title}>Informe Técnico de Laboratorio</Text>
+              <Text style={styles.subtitle}>Equipos de radiocomunicación</Text>
+            </View>
           </View>
           <View style={styles.headerMeta}>
             <Text>{report.empresa}</Text>
