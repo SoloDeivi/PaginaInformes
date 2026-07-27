@@ -13,6 +13,10 @@ interface InformeJoinedRow {
   cliente_nombre: string
   modelo_equipo: string
   numero_serie: string
+  freq_error: string
+  potencia: string
+  desviacion_audio: string
+  sensibilidad: string
   fecha: string
   fallas_comunes: string
   fallas_personalizadas: string
@@ -37,6 +41,10 @@ const toInforme = (row: InformeJoinedRow) => ({
   clienteNombre: row.cliente_nombre,
   modeloEquipo: row.modelo_equipo,
   numeroSerie: row.numero_serie,
+  freqError: row.freq_error,
+  potencia: row.potencia,
+  desviacionAudio: row.desviacion_audio,
+  sensibilidad: row.sensibilidad,
   fecha: row.fecha,
   fallasComunes: JSON.parse(row.fallas_comunes) as string[],
   fallasPersonalizadas: JSON.parse(row.fallas_personalizadas) as string[],
@@ -85,6 +93,10 @@ informesRouter.post('/', upload.single('pdf'), (req, res) => {
   const clienteId = Number(req.body?.clienteId)
   const modeloEquipo = typeof req.body?.modeloEquipo === 'string' ? req.body.modeloEquipo.trim() : ''
   const numeroSerie = typeof req.body?.numeroSerie === 'string' ? req.body.numeroSerie.trim() : ''
+  const freqError = typeof req.body?.freqError === 'string' ? req.body.freqError.trim() : ''
+  const potencia = typeof req.body?.potencia === 'string' ? req.body.potencia.trim() : ''
+  const desviacionAudio = typeof req.body?.desviacionAudio === 'string' ? req.body.desviacionAudio.trim() : ''
+  const sensibilidad = typeof req.body?.sensibilidad === 'string' ? req.body.sensibilidad.trim() : ''
   const fecha = typeof req.body?.fecha === 'string' ? req.body.fecha : ''
   const descripcionProblema = typeof req.body?.descripcionProblema === 'string' ? req.body.descripcionProblema : ''
   const solucionAplicada = typeof req.body?.solucionAplicada === 'string' ? req.body.solucionAplicada : ''
@@ -115,14 +127,19 @@ informesRouter.post('/', upload.single('pdf'), (req, res) => {
   const insertResult = db
     .prepare(
       `INSERT INTO informes
-        (cliente_id, modelo_equipo, numero_serie, fecha, fallas_comunes, fallas_personalizadas,
-         descripcion_problema, solucion_aplicada, archivo_nombre, archivo_ruta)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, '', '')`,
+        (cliente_id, modelo_equipo, numero_serie, freq_error, potencia, desviacion_audio, sensibilidad,
+         fecha, fallas_comunes, fallas_personalizadas, descripcion_problema, solucion_aplicada,
+         archivo_nombre, archivo_ruta)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '', '')`,
     )
     .run(
       clienteId,
       modeloEquipo,
       numeroSerie,
+      freqError,
+      potencia,
+      desviacionAudio,
+      sensibilidad,
       fecha,
       JSON.stringify(fallasComunes),
       JSON.stringify(fallasPersonalizadas),

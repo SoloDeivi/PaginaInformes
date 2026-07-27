@@ -21,6 +21,10 @@ export interface ReportFormData {
   empresa: string
   fecha: string
   numeroSerie: string
+  freqError: string
+  potencia: string
+  desviacionAudio: string
+  sensibilidad: string
   fallasComunes: string[]
   fallasPersonalizadas: string[]
   descripcionProblema: string

@@ -189,6 +189,28 @@ export const ReportPdfDocument = ({ report, resolvedModelo }: ReportPdfDocumentP
         </View>
 
         <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Parámetros del equipo</Text>
+          <View style={styles.infoGrid}>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Error de frecuencia (kHz)</Text>
+              <Text style={styles.infoValue}>{report.freqError || '—'}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Potencia (W)</Text>
+              <Text style={styles.infoValue}>{report.potencia || '—'}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Desviación de audio (kHz)</Text>
+              <Text style={styles.infoValue}>{report.desviacionAudio || '—'}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Text style={styles.infoLabel}>Sensibilidad (µV)</Text>
+              <Text style={styles.infoValue}>{report.sensibilidad || '—'}</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.section}>
           <Text style={styles.sectionTitle}>Fallas detectadas</Text>
           {failureLabels.length > 0 ? (
             <View style={styles.failuresList}>

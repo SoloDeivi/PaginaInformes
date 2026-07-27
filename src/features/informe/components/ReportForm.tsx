@@ -55,6 +55,10 @@ export const ReportForm = () => {
         clienteId: formData.clienteId,
         modeloEquipo: resolvedModelo,
         numeroSerie: formData.numeroSerie,
+        freqError: formData.freqError,
+        potencia: formData.potencia,
+        desviacionAudio: formData.desviacionAudio,
+        sensibilidad: formData.sensibilidad,
         fecha: formData.fecha,
         fallasComunes: formData.fallasComunes,
         fallasPersonalizadas: formData.fallasPersonalizadas,
@@ -117,6 +121,60 @@ export const ReportForm = () => {
               placeholder="Ej. 501CQK1234"
               value={formData.numeroSerie}
               onChange={(event) => setField('numeroSerie', event.target.value)}
+            />
+          </Field>
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-4 rounded-lg border border-slate-200 p-5">
+        <h2 className="text-base font-semibold text-slate-900">Parámetros del equipo</h2>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Field label="Error de frecuencia (kHz)" htmlFor="freqError">
+            <input
+              id="freqError"
+              type="text"
+              inputMode="decimal"
+              className={inputClassName}
+              placeholder="Ej. 0.5"
+              value={formData.freqError}
+              onChange={(event) => setField('freqError', event.target.value)}
+            />
+          </Field>
+
+          <Field label="Potencia (W)" htmlFor="potencia">
+            <input
+              id="potencia"
+              type="text"
+              inputMode="decimal"
+              className={inputClassName}
+              placeholder="Ej. 4"
+              value={formData.potencia}
+              onChange={(event) => setField('potencia', event.target.value)}
+            />
+          </Field>
+
+          <Field label="Desviación de audio (kHz)" htmlFor="desviacionAudio">
+            <input
+              id="desviacionAudio"
+              type="text"
+              inputMode="decimal"
+              className={inputClassName}
+              placeholder="Ej. 2.5"
+              value={formData.desviacionAudio}
+              onChange={(event) => setField('desviacionAudio', event.target.value)}
+            />
+          </Field>
+
+          <Field label="Sensibilidad (µV)" htmlFor="sensibilidad">
+            <input
+              id="sensibilidad"
+              type="text"
+              inputMode="decimal"
+              className={inputClassName}
+              placeholder="Ej. 0.25"
+              value={formData.sensibilidad}
+              onChange={(event) => setField('sensibilidad', event.target.value)}
             />
           </Field>
         </div>

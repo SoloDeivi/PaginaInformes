@@ -5,6 +5,10 @@ export interface CreateInformeInput {
   clienteId: number
   modeloEquipo: string
   numeroSerie: string
+  freqError: string
+  potencia: string
+  desviacionAudio: string
+  sensibilidad: string
   fecha: string
   fallasComunes: string[]
   fallasPersonalizadas: string[]
@@ -32,6 +36,10 @@ export const createInforme = (input: CreateInformeInput): Promise<Informe> => {
   formData.set('clienteId', String(input.clienteId))
   formData.set('modeloEquipo', input.modeloEquipo)
   formData.set('numeroSerie', input.numeroSerie)
+  formData.set('freqError', input.freqError)
+  formData.set('potencia', input.potencia)
+  formData.set('desviacionAudio', input.desviacionAudio)
+  formData.set('sensibilidad', input.sensibilidad)
   formData.set('fecha', input.fecha)
   formData.set('fallasComunes', JSON.stringify(input.fallasComunes))
   formData.set('fallasPersonalizadas', JSON.stringify(input.fallasPersonalizadas))

@@ -6,6 +6,10 @@ export interface Informe {
   clienteNombre: string
   modeloEquipo: string
   numeroSerie: string
+  freqError: string
+  potencia: string
+  desviacionAudio: string
+  sensibilidad: string
   fecha: string
   fallasComunes: string[]
   fallasPersonalizadas: string[]
